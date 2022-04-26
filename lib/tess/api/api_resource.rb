@@ -68,7 +68,7 @@ module Tess
       #these work fine, tested them
       def unscraped?
         #puts self.url
-        data = {"unscraped":{"url": self.url}}
+        data = {"unscraped":{"url": self.url.to_s}}
         response = Uploader.lookup_unscraped(data, "/unscrapeds/check_exists.json", :post)
         self.id = response['id']
               
@@ -77,7 +77,7 @@ module Tess
 
       def eventunscraped?
         #puts self.url
-        data = {"eventunscraped":{"url": self.url}}
+        data = {"eventunscraped":{"url": self.url.to_s}}
         response = Uploader.lookup_unscraped(data, "/eventunscrapeds/check_exists.json", :post)
         self.id = response['id']
       
